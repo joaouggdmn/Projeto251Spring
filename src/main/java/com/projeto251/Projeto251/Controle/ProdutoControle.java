@@ -18,7 +18,6 @@ public class ProdutoControle {
     }
 
     @PostMapping("/cadastrar")
-
     public void salvar(@RequestBody Produto produto){
         System.out.println("Nome Produto: "+ produto.getNome());
         System.out.println("Descrição  Produto: "+ produto.getDescricao());
@@ -37,5 +36,11 @@ public class ProdutoControle {
     }
 
     @PutMapping("/alterar/{id}")
+    public void alterar(@PathVariable("id") Long id, @RequestBody Produto prod){
+        prod.setId(id);
+        acaoProduto.save(prod);
+    }
+
+
 
 }
