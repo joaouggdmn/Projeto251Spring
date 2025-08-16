@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @RestController
 @RequestMapping("produtos")
 @CrossOrigin(origins = "*")
@@ -41,6 +43,10 @@ public class ProdutoControle {
         acaoProduto.save(prod);
     }
 
+    @DeleteMapping("/deletar/{id}")
+    public void deletarId(@PathVariable("id") Long id){
+        acaoProduto.deleteById(id);
+    }
 
 
 }
